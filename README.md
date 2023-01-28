@@ -1,0 +1,3 @@
+# alldev
+This project scrapes Twitter to get All developer and software Advocates on Twitter
+Readme file will be updated later....
