@@ -13,7 +13,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 import requests
 import requests_oauthlib
-# import autsecrets
+import autsecrets
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -25,11 +25,11 @@ import tweepy
 import re
 import time
 
-TWITTER_API_KEY = os.environ.get('TWITTER_API_KEY')
-TWITTER_API_SECRET = os.environ.get('TWITTER_API_SECRET')
-TWITTER_ACCESS_TOKEN = os.environ.get('TWITTER_ACCESS_TOKEN')
-TWITTER_ACCESS_TOKEN_SECRET  = os.environ.get('TWITTER_ACCESS_TOKEN_SECRET ')
-BEARER_TOKEN = os.environ.get('BEARER_TOKEN')
+# TWITTER_API_KEY = os.environ.get('TWITTER_API_KEY')
+# TWITTER_API_SECRET = os.environ.get('TWITTER_API_SECRET')
+# TWITTER_ACCESS_TOKEN = os.environ.get('TWITTER_ACCESS_TOKEN')
+# TWITTER_ACCESS_TOKEN_SECRET  = os.environ.get('TWITTER_ACCESS_TOKEN_SECRET ')
+# BEARER_TOKEN = os.environ.get('BEARER_TOKEN')
 
 
 # Create your views here.
@@ -44,25 +44,27 @@ BEARER_TOKEN = os.environ.get('BEARER_TOKEN')
 # def advocate_detail(request, username):
 #     data = username
 #     return JsonResponse(data, safe=False)
-# auth = requests_oauthlib.OAuth1(autsecrets.TWITTER_API_KEY,
-#                                 autsecrets.TWITTER_API_SECRET,
-#                                 autsecrets.TWITTER_ACCESS_TOKEN,
-#                                 autsecrets.TWITTER_ACCESS_TOKEN_SECRET)
 
-# auth2 = tweepy.OAuth1UserHandler(autsecrets.TWITTER_API_KEY,
-#                                 autsecrets.TWITTER_API_SECRET,
-#                                 autsecrets.TWITTER_ACCESS_TOKEN,
-#                                 autsecrets.TWITTER_ACCESS_TOKEN_SECRET)
+# Authentications
+auth = requests_oauthlib.OAuth1(autsecrets.TWITTER_API_KEY,
+                                autsecrets.TWITTER_API_SECRET,
+                                autsecrets.TWITTER_ACCESS_TOKEN,
+                                autsecrets.TWITTER_ACCESS_TOKEN_SECRET)
 
-auth = requests_oauthlib.OAuth1(os.environ.get('TWITTER_API_KEY'),
-    os.environ.get('TWITTER_API_SECRET'),
-    os.environ.get('TWITTER_ACCESS_TOKEN'),
-    os.environ.get('TWITTER_ACCESS_TOKEN_SECRET'))
+auth2 = tweepy.OAuth1UserHandler(autsecrets.TWITTER_API_KEY,
+                                autsecrets.TWITTER_API_SECRET,
+                                autsecrets.TWITTER_ACCESS_TOKEN,
+                                autsecrets.TWITTER_ACCESS_TOKEN_SECRET)
 
-auth2 = tweepy.OAuth1UserHandler(os.environ.get('TWITTER_API_KEY'),
-                                os.environ.get('TWITTER_API_SECRET'),
-                                os.environ.get('TWITTER_ACCESS_TOKEN'),
-    os.environ.get('TWITTER_ACCESS_TOKEN_SECRET'))
+# auth = requests_oauthlib.OAuth1(os.environ.get('TWITTER_API_KEY'),
+#     os.environ.get('TWITTER_API_SECRET'),
+#     os.environ.get('TWITTER_ACCESS_TOKEN'),
+#     os.environ.get('TWITTER_ACCESS_TOKEN_SECRET'))
+
+# auth2 = tweepy.OAuth1UserHandler(os.environ.get('TWITTER_API_KEY'),
+#     os.environ.get('TWITTER_API_SECRET'),
+#     os.environ.get('TWITTER_ACCESS_TOKEN'),
+#     os.environ.get('TWITTER_ACCESS_TOKEN_SECRET'))
 
 @api_view(['GET'])
 def endpoints(request):
