@@ -194,15 +194,15 @@ class AdvocateDetail(APIView):
         # except Advocate.DoesNotExist:
             # raise JsonResponse('Advocate does not exist')
         # advocate = self.get_object(username)
-        # advocate = Advocate.objects.get(username)
-        #        
-        head = {'Authorization': 'Bearer' + TWITTER_API_KEY}
+        # advocate = Advocate.objects.get(username)    
+        TWITTER_API_KEY = autsecrets.TWITTER_API_KEY
+        head = {'Authorization': 'Bearer' + 'TWITTER_API_KEY'}
 
         fields = '?user.fields=profile_image_url,description,public_metrics,created_at'
 
         url = "https://api.twitter.com/2/users/by/username/" + str(username) + fields
         response = requests.get(url, headers=head).json()
-        response = requests.get(url, auth=auth).json()
+        # response = requests.get(url, auth=auth).json()
         # print(response)
         data = response['data']
         data['profile_image_url'] = data['profile_image_url'].replace('normal', '400x400')
