@@ -195,12 +195,7 @@ class AdvocateDetail(APIView):
             # raise JsonResponse('Advocate does not exist')
         # advocate = self.get_object(username)
         # advocate = Advocate.objects.get(username)
-        # advocate.username = request.data['username']
-        # advocate.bio = request.data['bio']
-        # print(advocate)
-        # advocate.save()
-        # serializer = AdvocateSerializer(advocate, many=False)
-        # return Response(serializer.data)
+        #        
         head = {'Authorization': 'Bearer' + TWITTER_API_KEY}
 
         fields = '?user.fields=profile_image_url,description,public_metrics,created_at'
@@ -208,7 +203,7 @@ class AdvocateDetail(APIView):
         url = "https://api.twitter.com/2/users/by/username/" + str(username) + fields
         response = requests.get(url, headers=head).json()
         response = requests.get(url, auth=auth).json()
-        print(response)
+        # print(response)
         data = response['data']
         data['profile_image_url'] = data['profile_image_url'].replace('normal', '400x400')
 
