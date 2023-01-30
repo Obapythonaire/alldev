@@ -25,11 +25,11 @@ import tweepy
 import re
 import time
 
-# TWITTER_API_KEY = os.environ.get('TWITTER_API_KEY')
-# TWITTER_API_SECRET = os.environ.get('TWITTER_API_SECRET')
-# TWITTER_ACCESS_TOKEN = os.environ.get('TWITTER_ACCESS_TOKEN')
-# TWITTER_ACCESS_TOKEN_SECRET  = os.environ.get('TWITTER_ACCESS_TOKEN_SECRET ')
-# BEARER_TOKEN = os.environ.get('BEARER_TOKEN')
+TWITTER_API_KEY = os.environ.get('TWITTER_API_KEY')
+TWITTER_API_SECRET = os.environ.get('TWITTER_API_SECRET')
+TWITTER_ACCESS_TOKEN = os.environ.get('TWITTER_ACCESS_TOKEN')
+TWITTER_ACCESS_TOKEN_SECRET  = os.environ.get('TWITTER_ACCESS_TOKEN_SECRET ')
+BEARER_TOKEN = os.environ.get('BEARER_TOKEN')
 
 
 # Create your views here.
