@@ -31,7 +31,7 @@ import time
 # TWITTER_ACCESS_TOKEN_SECRET  = os.environ.get('TWITTER_ACCESS_TOKEN_SECRET ')
 # BEARER_TOKEN = os.environ.get('BEARER_TOKEN')
 
-TWITTER_API_KEY= requests_oauthlib.OAuth1(os.environ.get('TWITTER_API_KEY'))
+# TWITTER_API_KEY= requests_oauthlib.OAuth1(os.environ.get('TWITTER_API_KEY'))
 # TWITTER_API_SECRET = autsecrets.TWITTER_API_SECRET
 # TWITTER_ACCESS_TOKEN = autsecrets.TWITTER_ACCESS_TOKEN
 # TWITTER_ACCESS_TOKEN_SECRET  = autsecrets.TWITTER_ACCESS_TOKEN_SECRET
@@ -196,13 +196,13 @@ class AdvocateDetail(APIView):
         # advocate = self.get_object(username)
         # advocate = Advocate.objects.get(username)    
 
-        head = {'Authorization': 'Bearer' + TWITTER_API_KEY}
+        # head = {'Authorization': 'Bearer' + 'TWITTER_API_KEY'}
 
         fields = '?user.fields=profile_image_url,description,public_metrics,created_at'
 
         url = "https://api.twitter.com/2/users/by/username/" + str(username) + fields
-        response = requests.get(url, headers=head).json()
-        # response = requests.get(url, auth=auth).json()
+        # response = requests.get(url, headers=head).json()
+        response = requests.get(url, auth=auth).json()
         # print(response)
         data = response['data']
         data['profile_image_url'] = data['profile_image_url'].replace('normal', '400x400')
