@@ -136,7 +136,7 @@ def advocates_list(request):
 
     if request.method == 'POST':
         # new_users =[]
-        for user in tweepy.Cursor(api.search_users, q='"software" OR "developer"').items(10):
+        for user in tweepy.Cursor(api.search_users, q='"software" OR "developer"').items():
             time.sleep(1.0 / 1000)  # Pause execution for 1/1000 of a second
             username = user.screen_name
             joined_at = user.created_at
